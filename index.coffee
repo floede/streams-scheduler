@@ -10,6 +10,7 @@ v0 = new api
 
 TasksController =
 	options: {} #This doesn't get used
+	
 	routes: 
 		getAllTasks:
 			method: "GET"
@@ -32,5 +33,16 @@ TasksController =
 		completeTask:
 		    method: "PUT"
 		    path: ["*identifier", "complete"]
-	actions: {}
+
+	actions: 
+		getAllTasks: (req, res, params) ->
+			Tasks = mongoose.model "Tasks"
+
+			Tasks.getAll (err,allTasks) =>
+				if err
+					console.log err
+					@responses.internalError res
+				else
+					@responses.respond res, allTasks
+
 	helpers: {}

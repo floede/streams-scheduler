@@ -2,7 +2,8 @@
 	"folders":
 	[
 		{
-			"path": "/C/Users/Janus Hasseriis/OneDrive/www/streams-scheduler"
+			"follow_symlinks": true,
+			"path": "."
 		}
 	]
 }
